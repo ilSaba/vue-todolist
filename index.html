@@ -14,14 +14,14 @@
     <div id="root">
         <div class="container">
             <h1>ToDo</h1>
-            <ul>
-                <li>
-                    <span class="title"></span>
-                    <span class="edit"><i class="far fa-edit"></i></span>
-                    <span class="check"><i class="fas fa-check"></i></span>
+            <ul class="todos">
+                <li v-for="todo in todos">
+                    <span class="title">{{ todo.title }}</span>
+                    <span class="controls check"><i class="fas fa-check"></i></span>
+                    <span class="controls edit"><i class="far fa-edit"></i></span>
                 </li>
             </ul>
-        <input type="text">
+        <input v-model="input" type="text" placeholder="Inserici nuovo ToDo" @keyup.enter="add">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

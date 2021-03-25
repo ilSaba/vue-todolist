@@ -26,6 +26,22 @@ body{
     background-image: -webkit-linear-gradient(top right, #FFFFFF 0%, #AACFEF 100%);
 }
 
+.todos{
+    list-style: none;
+}
+
 h1{
     font-size: 50px;
+}
+
+ul.todos li .controls{
+    float: right;
+    padding: 0 5px;
+    padding-bottom: 8px;;
+}
+
+ul.todos li:after{
+    content: '';
+    display: table;
+    clear: both;
 }
