@@ -15,10 +15,26 @@
         <div class="container">
             <h1>ToDo</h1>
             <ul class="todos">
-                <li v-for="todo in todos">
-                    <span class="title">{{ todo.title }}</span>
-                    <span class="controls check"><i class="fas fa-check"></i></span>
-                    <span class="controls edit"><i class="far fa-edit"></i></span>
+                <li v-for="todo in todoComputed">
+                    <span class="title"
+                    :class="(todo.status == 'done') ? 'trash' : '' "
+                    >{{ todo.title }}</span>
+
+                    <span class="controls check"
+                    @click="check (todo)" 
+                    v-if="todo.status != 'done'">
+                    <i class="fas fa-check"></i>
+                    </span>
+                    
+                    <span class="controls edit"
+                    v-if="todo.status != 'done'">
+                    <i class="far fa-edit">
+                    </i></span>
+
+                    <span v-if="todo.status == 'done'" class="remove"
+                    @click="remove (todo)">
+                        <i class="fas fa-trash"></i>
+                    </span>
                 </li>
             </ul>
         <input v-model="input" type="text" placeholder="Inserici nuovo ToDo" @keyup.enter="add">
